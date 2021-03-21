@@ -1,0 +1,29 @@
+<!--
+  Generated template for the BurgerListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="background" padding>
+  <h2>Ajout d'un nouveau burger</h2>
+  <button ion-button (click)="onGoToCreate()">Ajout</button>
+
+  <h2>Liste des burgers</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 size="4" *ngFor="let burger of burgers">
+        <ion-list (click)="onGoToBurger(burger.data.title, burger.id)">
+          <ion-item>
+            <strong>
+              {{burger.data.name}}
+            </strong>
+          </ion-item>
+          <ion-item>
+            <img [src]="burger.data.picture" [alt]="burger.data.name" />
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

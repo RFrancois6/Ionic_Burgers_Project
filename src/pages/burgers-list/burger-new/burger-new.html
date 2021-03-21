@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ajout d'un burger</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background" padding>
+  <ion-item>
+    <ion-label>Image</ion-label>
+    <ion-input type="text" [(ngModel)]="burger.picture"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="burger.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Pays</ion-label>
+    <ion-input type="text" [(ngModel)]="burger.country"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Provenance</ion-label>
+    <ion-input type="text" [(ngModel)]="burger.brand"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Veggie</ion-label>
+    <ion-toggle [(ngModel)]="burger.veggie"></ion-toggle>
+  </ion-item>
+  <br />
+  <div class="text-center">
+    <button ion-button (click)="onAdd()">Enregistrer</button>
+  </div>
+</ion-content>

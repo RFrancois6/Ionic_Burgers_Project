@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background" padding>
+  <!-- <div *ngIf="!modif">
+    J'affiche le détail
+  </div>
+  <div *ngIf="modif">
+    Je peux modifier
+  </div> -->
+  <div *ngIf="modif; then content else otherContent"></div>
+  <ng-template #content>
+    <ion-item>
+      <ion-label>Image</ion-label>
+      <ion-input type="text" [(ngModel)]="burger.data.picture"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="burger.data.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Pays</ion-label>
+      <ion-input type="text" [(ngModel)]="burger.data.country"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Provenance</ion-label>
+      <ion-input type="text" [(ngModel)]="burger.data.brand"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Veggie</ion-label>
+      <ion-toggle [(ngModel)]="burger.data.veggie"></ion-toggle>
+    </ion-item>
+    <br />
+    <div class="text-center">
+      <button ion-button (click)="onModif()">Modifier</button>
+    </div>
+  </ng-template>
+  <ng-template #otherContent>
+    <ion-grid *ngIf="burger">
+      <ion-row><h1>{{burger.data.name}}</h1></ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <img [src]="burger.data.picture" [alt]="burger.data.name" />
+        </ion-col>
+        <ion-col col-6>
+          <strong>Nom :</strong>
+          <br />
+          {{burger.data.name}}
+          <br />
+          <strong>Pays :</strong>
+          <br />
+          {{burger.data.country}}
+          <br />
+          <strong>Provenance :</strong>
+          <br />
+          {{burger.data.brand}}
+          <br />
+          <strong>Veggie :</strong>
+          <br />
+          {{burger.data.veggie}}
+          <br />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-10>
+          <button ion-button (click)="onGoAccessModif()">Modifier</button>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button>
+            <ion-icon name="trash" (click)="onDelete()"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+</ion-content>
